@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package parquet.generator;
+
+option java_multiple_files = true;
+option java_package = "parquet.generator";
+option java_outer_classname = "TestMessageProto";
+
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+
+message TestMessage {
+  string query = 1;
+  int32 page_number = 2;
+  int32 result_per_page = 3;
+}
+

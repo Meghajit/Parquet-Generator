@@ -1,0 +1,40 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.18'
+    }
+}
+
+plugins {
+    id 'java-library'
+    id 'idea'
+    id "com.google.protobuf" version "0.8.18"
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.13.2'
+
+    implementation 'org.apache.parquet:parquet-protobuf:1.12.0'
+    implementation 'org.apache.parquet:parquet-hadoop:1.12.0'
+    implementation 'org.apache.hadoop:hadoop-client:3.3.2'
+    runtimeOnly 'org.apache.parquet:parquet-format-structures:1.12.2'
+}
+
+protobuf {
+    generatedFilesBaseDir = "$projectDir/src/generated"
+    protoc {
+        artifact = "com.google.protobuf:protoc:3.1.0"
+    }
+}
+
+idea {
+    module {
+        sourceDirs += file("/src/generated/main/java")
+    }
+}
