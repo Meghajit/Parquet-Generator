@@ -5,11 +5,11 @@ This is a simple library which helps to generate parquet files containing the re
 ## Design
 The library consists of a single concrete class named `ParquetGenerator`. It has 3 methods with their contract like this:
 
-			public class ParquetGenerator {
-				 public ParquetGenerator(String filePath, MessageType schema) throws IOException();
-				 public void writeToFile(SimpleGroup simpleGroup) throws IOException();
-				 public void closeWriter() throws IOException();
-			}
+    public class ParquetGenerator {
+         public ParquetGenerator(String filePath, MessageType schema) throws IOException();
+         public void writeToFile(SimpleGroup simpleGroup) throws IOException();
+         public void closeWriter() throws IOException();
+    }
 
 * The constructor takes 2 arguments:
     * filePath: This is the required path to the output parquet file where the data needs to be written. The file will be generated automatically and need not be created prior.
