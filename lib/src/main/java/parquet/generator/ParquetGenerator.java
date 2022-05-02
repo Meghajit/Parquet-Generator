@@ -17,8 +17,8 @@ import java.io.IOException;
 public class ParquetGenerator {
     private final ParquetWriter<SimpleGroup> parquetWriter;
 
-    public ParquetGenerator(String filepath, MessageType schema) throws IOException {
-        Path hadoopPath = new Path(filepath);
+    public ParquetGenerator(String filePath, MessageType schema) throws IOException {
+        Path hadoopPath = new Path(filePath);
         Configuration configuration = new Configuration();
         configuration.set("parquet.example.schema", schema.toString());
         GroupWriteSupport.setSchema(schema, configuration);
